@@ -14,7 +14,7 @@ export default function CoverImage({ title, slug, image: source, size }) {
       m="0"
       boxSizing="border-box"
       pos="relative"
-      h={height}
+      h={{ base: size === 'small' ? 150 : 300, md: height }}
       cursor="pointer"
       transition=".3s ease"
       shadow="lg"

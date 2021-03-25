@@ -6,7 +6,7 @@ import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/layout';
 
 export default function HeroPost({ title, coverImage, date, excerpt, author, slug }) {
   return (
-    <Box as="section">
+    <Box as="section" mb="8">
       <Box mb={{ base: '8', md: '12' }}>
         <CoverImage slug={slug} title={title} image={coverImage} />
       </Box>
@@ -22,9 +22,7 @@ export default function HeroPost({ title, coverImage, date, excerpt, author, slu
               <a className="hover:underline">{title}</a>
             </Link>
           </Heading>
-          <Box mb={{ base: '4', md: '0' }} className="mb-4 md:mb-0 text-lg">
-            <Date dateString={date} />
-          </Box>
+          <Date dateString={date} />
         </GridItem>
         <GridItem>
           <Box my="4">

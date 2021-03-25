@@ -11,7 +11,7 @@ function Layout({ preview, children }) {
           This page is a preview. <a href="/api/exit-preview">Click here</a> to exit preview mode.
         </Box>
       )}
-      <Box as="main" maxW="6xl" mx="auto" pt="4" px="2">
+      <Box as="main" maxW="6xl" mx="auto" pt="4" px="4">
         {children}
       </Box>
     </Box>

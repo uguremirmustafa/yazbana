@@ -27,7 +27,7 @@ function Navbar() {
       align="center"
       boxShadow="sm"
     >
-      <Flex w="100%" maxW="6xl" mx="auto" justify="space-between" align="center" px="2">
+      <Flex w="100%" maxW="6xl" mx="auto" justify="space-between" align="center" px="4">
         <Box>
           <NextLink href="/">Blogme</NextLink>
         </Box>

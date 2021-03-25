@@ -1,6 +1,7 @@
 import { indexQuery } from '../lib/queries';
 import { getClient, overlayDrafts } from '../lib/sanity.server';
 import NextLink from 'next/link';
+import Seperator from '@components/Seperator';
 import Layout from '@components/layout/Layout';
 import Head from 'next/head';
 import HeroPost from '@components/HeroPost';
@@ -24,6 +25,7 @@ export default function Index({ allPosts, preview }) {
           excerpt={heroPost.excerpt}
         />
       )}
+      <Seperator />
       {morePosts.length > 0 && <MoreStories posts={morePosts} />}
     </Layout>
   );

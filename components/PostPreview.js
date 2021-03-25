@@ -6,7 +6,7 @@ import { Box, Heading, Text } from '@chakra-ui/layout';
 
 export default function PostPreview({ title, coverImage, date, excerpt, author, slug }) {
   return (
-    <Box>
+    <Box mb="8">
       <Box mb="4">
         <CoverImage slug={slug} title={title} image={coverImage} size="small" />
       </Box>
