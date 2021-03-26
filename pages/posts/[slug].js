@@ -6,9 +6,10 @@ import { postQuery, postSlugsQuery } from '../../lib/queries';
 import { urlForImage, usePreviewSubscription } from '../../lib/sanity';
 import { sanityClient, getClient, overlayDrafts } from '../../lib/sanity.server';
 import PostTitle from '@components/PostTitle';
-import { Box } from '@chakra-ui/layout';
+import { Box, Divider } from '@chakra-ui/layout';
 import PostHeader from '@components/PostHeader';
 import PostBody from '@components/PostBody';
+import MoreStories from '@components/MoreStories';
 
 export default function Post({ data = {}, preview }) {
   const router = useRouter();
@@ -28,7 +29,6 @@ export default function Post({ data = {}, preview }) {
 
   return (
     <Layout preview={preview}>
-      {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
       {router.isFallback ? (
         <PostTitle>Loading...</PostTitle>
       ) : (
@@ -52,36 +52,11 @@ export default function Post({ data = {}, preview }) {
             author={post.author}
           />
           <PostBody content={post.body} />
+          <Divider my="8" />
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Box>
       )}
     </Layout>
-    //     <Header />
-    //     {router.isFallback ? (
-    //       <PostTitle>Loading…</PostTitle>
-    //     ) : (
-    //       <>
-    //         <article>
-    //           <Head>
-    //             <title>
-    //               {post.title} | Next.js Blog Example with {CMS_NAME}
-    //             </title>
-    //             {post.coverImage && (
-    //               <meta
-    //                 key="ogImage"
-    //                 property="og:image"
-    //                 content={urlForImage(post.coverImage).width(1200).height(627).fit('crop').url()}
-    //               />
-    //             )}
-    //           </Head>
-    //           <PostHeader
-
-    //           />
-    //           <PostBody content={post.content} />
-    //         </article>
-    //         <SectionSeparator />
-    //         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-    //       </>
-    //     )}
   );
 }
 

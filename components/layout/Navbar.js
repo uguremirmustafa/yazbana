@@ -1,11 +1,15 @@
 import NextLink from 'next/link';
 import React from 'react';
 import { ActiveLink } from './ActiveLink';
-import { Box, Flex, Link } from '@chakra-ui/react';
+import { Box, Flex, Link, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import useCategories from '@utils/useCategories';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 
 function Navbar() {
+  const { data: categories, isLoading } = useCategories();
+
   const normalRoutes = [
-    { route: '/', label: 'Home' },
+    // { route: '/', label: 'Home' },
     { route: '/blog', label: 'Blog' },
   ];
 
@@ -16,6 +20,25 @@ function Navbar() {
       </Box>
     </ActiveLink>
   ));
+
+  const categoriesDropdown = (
+    <Menu>
+      <MenuButton as={Box} righticon={<ChevronDownIcon />} ml="3" cursor="pointer">
+        {isLoading ? 'Yükleniyor' : 'Kategoriler'}
+      </MenuButton>
+      <MenuList>
+        {categories?.map((cat) => (
+          <MenuItem key={cat.slug} fontWeight="bold">
+            <ActiveLink href={`/kategoriler/${cat.slug}`}>
+              <Box ml="3" cursor="pointer">
+                {cat.title}
+              </Box>
+            </ActiveLink>
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
+  );
   return (
     <Flex
       as="nav"
@@ -32,7 +55,10 @@ function Navbar() {
           <NextLink href="/">Blogme</NextLink>
         </Box>
 
-        <Flex>{normalLinks}</Flex>
+        <Flex>
+          {normalLinks}
+          {categoriesDropdown}
+        </Flex>
       </Flex>
     </Flex>
   );

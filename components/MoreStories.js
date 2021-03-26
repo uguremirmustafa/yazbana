@@ -1,14 +1,14 @@
 import { Grid, GridItem, Heading } from '@chakra-ui/layout';
 import PostPreview from '@components/PostPreview';
 
-export default function MoreStories({ posts }) {
+export default function MoreStories({ posts, column }) {
+  const triple = column === 3;
   return (
     <section>
-      <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight"></h2>
-      <Heading mb="8" fontSize={{ base: '2xl', lg: '3xl' }}>
-        Popular Posts
-      </Heading>
-      <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={{ md: '8', lg: '12' }}>
+      <Grid
+        templateColumns={{ base: '1fr', md: triple ? '1fr 1fr 1fr' : '1fr 1fr' }}
+        gap={{ md: '8', lg: '12' }}
+      >
         {posts.map((post) => (
           <GridItem key={post.slug}>
             <PostPreview

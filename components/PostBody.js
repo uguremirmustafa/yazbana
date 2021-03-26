@@ -13,7 +13,7 @@ export default function PostBody({ content }) {
     },
   };
   return (
-    <Box>
+    <Box maxW="3xl" mx="auto">
       <BlockContent
         blocks={content}
         serializers={serializers}

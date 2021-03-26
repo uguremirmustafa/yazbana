@@ -6,7 +6,8 @@
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
       "@models/*": ["models/*"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@context/*": ["context/*"]
     }
   }
 }
