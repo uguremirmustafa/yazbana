@@ -9,6 +9,8 @@ import {
   Input,
   FormErrorMessage,
   Textarea,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react';
 
 const initialValues = {
@@ -64,67 +66,77 @@ function CommentForm({ postId }) {
         {({ isSubmitting }) => (
           <Box w="100%" mx="auto" rounded="xl">
             <Form noValidate>
-              <Field name="name">
-                {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.name && form.touched.name} mb="4">
-                    <FormLabel htmlFor="name">Ad</FormLabel>
-                    <Input
-                      {...field}
-                      id="name"
-                      placeholder="İsminiz"
-                      border="2px"
-                      borderRadius="full"
-                      borderColor="gray.400"
-                      color="gray.800"
-                    />
-                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-              <Field name="email">
-                {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.email && form.touched.email} mb="4">
-                    <FormLabel htmlFor="email">E-posta</FormLabel>
-                    <Input
-                      {...field}
-                      id="email"
-                      placeholder="E-posta adresiniz"
-                      border="2px"
-                      borderRadius="full"
-                      borderColor="gray.400"
-                      color="gray.800"
-                    />
-                    <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-              <Field name="comment">
-                {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.comment && form.touched.comment}>
-                    <FormLabel htmlFor="comment">Mesajınız</FormLabel>
-                    <Textarea
-                      {...field}
-                      id="comment"
-                      placeholder="Yorumunuzu buraya yazın."
-                      h="200px"
-                      border="2px"
-                      borderColor="gray.400"
-                      color="gray.800"
-                    />
-                    <FormErrorMessage>{form.errors.comment}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-              <Button
-                disabled={isSubmitting}
-                width="full"
-                rounded="full"
-                mt={4}
-                type="submit"
-                colorScheme="yellow"
-              >
-                {message === '' ? 'Yorumu Gönder' : message}
-              </Button>
+              <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={2}>
+                <GridItem>
+                  <Field name="name">
+                    {({ field, form }) => (
+                      <FormControl isInvalid={form.errors.name && form.touched.name} mb="4">
+                        <FormLabel htmlFor="name">Ad</FormLabel>
+                        <Input
+                          {...field}
+                          id="name"
+                          placeholder="İsminiz"
+                          border="2px"
+                          borderRadius="full"
+                          borderColor="gray.400"
+                          color="gray.800"
+                        />
+                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                </GridItem>
+                <GridItem>
+                  <Field name="email">
+                    {({ field, form }) => (
+                      <FormControl isInvalid={form.errors.email && form.touched.email} mb="4">
+                        <FormLabel htmlFor="email">E-posta</FormLabel>
+                        <Input
+                          {...field}
+                          id="email"
+                          placeholder="E-posta adresiniz"
+                          border="2px"
+                          borderRadius="full"
+                          borderColor="gray.400"
+                          color="gray.800"
+                        />
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                </GridItem>
+                <GridItem colSpan={{ md: '2' }}>
+                  <Field name="comment">
+                    {({ field, form }) => (
+                      <FormControl isInvalid={form.errors.comment && form.touched.comment}>
+                        <FormLabel htmlFor="comment">Mesajınız</FormLabel>
+                        <Textarea
+                          {...field}
+                          id="comment"
+                          placeholder="Yorumunuzu buraya yazın."
+                          h="150px"
+                          border="2px"
+                          borderColor="gray.400"
+                          color="gray.800"
+                        />
+                        <FormErrorMessage>{form.errors.comment}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                </GridItem>
+                <GridItem colSpan={{ md: '2' }}>
+                  <Button
+                    disabled={isSubmitting}
+                    width="full"
+                    rounded="full"
+                    mt={4}
+                    type="submit"
+                    colorScheme="yellow"
+                  >
+                    {message === '' ? 'Yorumu Gönder' : message}
+                  </Button>
+                </GridItem>
+              </Grid>
             </Form>
           </Box>
         )}

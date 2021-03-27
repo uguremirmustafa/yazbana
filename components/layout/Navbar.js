@@ -11,18 +11,17 @@ import {
   MenuList,
   Submenu,
 } from '@chakra-ui/react';
-import useCategories from '@utils/useCategories';
+
 import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
 import useWindowSize from '@hooks/useWindowSize';
 import { normalLinks } from './Routes';
 
-function Navbar() {
+function Navbar({ categories, isLoading }) {
   //utility functions
   const { width } = useWindowSize();
   const isMobile = width <= 760;
 
   //categories and navbar list
-  const { data: categories, isLoading } = useCategories();
   const dropdownCategories = categories?.filter((i) => i.isOnNavbar && i.isOnDropdown);
   const navbarCategories = categories?.filter((i) => i.isOnNavbar && !i.isOnDropdown);
 
@@ -35,7 +34,7 @@ function Navbar() {
   ));
 
   const categoriesDropdown = (
-    <Menu>
+    <Menu colorScheme="red">
       <MenuButton as={Box} righticon={<ChevronDownIcon />} ml="3" cursor="pointer">
         {isLoading ? 'Yükleniyor' : 'Kategoriler'}
       </MenuButton>

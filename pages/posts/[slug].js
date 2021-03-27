@@ -10,7 +10,8 @@ import { Box, Divider, Heading } from '@chakra-ui/layout';
 import PostHeader from '@components/PostHeader';
 import PostBody from '@components/PostBody';
 import MoreStories from '@components/MoreStories';
-import Comments from '@components/Comments';
+import dynamic from 'next/dynamic';
+const Comments = dynamic(() => import('@components/Comments'));
 
 export default function Post({ data = {}, preview }) {
   const router = useRouter();
@@ -26,7 +27,6 @@ export default function Post({ data = {}, preview }) {
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />;
   }
-
   return (
     <Layout preview={preview}>
       {router.isFallback ? (
@@ -52,7 +52,8 @@ export default function Post({ data = {}, preview }) {
             author={post.author}
           />
           <PostBody content={post.body} />
-          <Comments postId={post._id} />
+          <Divider my="8" />
+          <Comments postId={post._id} comments={post.comments} />
           <Divider my="8" />
           <Heading mb="8" fontSize={{ base: '2xl', lg: '3xl' }}>
             Seveceğinizi düşündük
@@ -68,7 +69,6 @@ export async function getStaticProps({ params, preview = false }) {
   const { post, morePosts } = await getClient(preview).fetch(postQuery, {
     slug: params.slug,
   });
-
   return {
     props: {
       preview,

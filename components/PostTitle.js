@@ -6,7 +6,7 @@ export default function PostTitle({ children }) {
     <Heading
       fontFamily="heading"
       textTransform="capitalize"
-      fontSize="6xl"
+      fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '6xl' }}
       transition="ease-in-out"
       cursor="pointer"
       transitionDuration="0.3s"

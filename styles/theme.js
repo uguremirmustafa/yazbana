@@ -1,7 +1,7 @@
 export default {
   fonts: {
-    body: "'Raleway', sans",
-    heading: "'Bangers', cursive",
+    body: '"Ubuntu",sans',
+    heading: 'sans',
     mono: "'My Monospaced Font', monospace",
   },
 };

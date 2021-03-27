@@ -2,18 +2,11 @@ import Layout from '@components/layout/Layout';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import {
-  categoriesSlugsQuery,
-  categoryWithPostsQuery,
-  postQuery,
-  postSlugsQuery,
-} from '../../lib/queries';
-import { urlForImage, usePreviewSubscription } from '../../lib/sanity';
+import { categoriesSlugsQuery, categoryWithPostsQuery, postQuery } from '../../lib/queries';
+import { usePreviewSubscription } from '../../lib/sanity';
 import { sanityClient, getClient, overlayDrafts } from '../../lib/sanity.server';
 import CategoryTitle from '@components/CategoryTitle';
-import { Box, Divider, Heading } from '@chakra-ui/layout';
-import PostHeader from '@components/PostHeader';
-import PostBody from '@components/PostBody';
+import { Box, Heading } from '@chakra-ui/layout';
 import HeroPost from '@components/HeroPost';
 import MoreStories from '@components/MoreStories';
 
@@ -60,11 +53,13 @@ export default function Post({ data = {}, preview }) {
               excerpt={heroPost.excerpt}
             />
           )}
-          <Heading mb="8" fontSize={{ base: '2xl', lg: '3xl' }}>
-            Kategoride Popüler Olanlar
-          </Heading>
           {moreStories.length > 0 && (
-            <MoreStories posts={moreStories} column={moreStories.length > 2 ? 3 : 2} />
+            <>
+              <Heading mb="8" fontSize={{ base: '2xl', lg: '3xl' }}>
+                Kategoride Popüler Olanlar
+              </Heading>
+              <MoreStories posts={moreStories} column={moreStories.length > 2 ? 3 : 2} />
+            </>
           )}
         </Box>
       )}
