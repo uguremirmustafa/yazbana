@@ -11,7 +11,7 @@ export default function PostPreview({ title, coverImage, date, excerpt, author, 
         <CoverImage slug={slug} title={title} image={coverImage} size="small" />
       </Box>
 
-      <Heading mb="4" fontSize="3xl" textTransform="capitalize">
+      <Heading mb="4" fontSize={{ base: 'xl', md: '2xl', lg: '3xl' }} textTransform="capitalize">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           {title}
         </Link>

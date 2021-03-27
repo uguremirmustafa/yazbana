@@ -1,7 +1,7 @@
 export default {
   fonts: {
-    body: "'SourceSansPro', sans",
-    heading: "'Dela Gothic One', cursive",
+    body: "'Raleway', sans",
+    heading: "'Bangers', cursive",
     mono: "'My Monospaced Font', monospace",
   },
 };

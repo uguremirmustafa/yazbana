@@ -14,7 +14,6 @@ import Comments from '@components/Comments';
 
 export default function Post({ data = {}, preview }) {
   const router = useRouter();
-  // console.log(data);
   const slug = data?.post?.slug;
   const {
     data: { post, morePosts },

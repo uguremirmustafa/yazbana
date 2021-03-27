@@ -6,8 +6,8 @@ export default function MoreStories({ posts, column }) {
   return (
     <section>
       <Grid
-        templateColumns={{ base: '1fr', md: triple ? '1fr 1fr 1fr' : '1fr 1fr' }}
-        gap={{ md: '8', lg: '12' }}
+        templateColumns={{ base: '1fr', sm: '1fr 1fr', lg: triple ? '1fr 1fr 1fr' : '1fr 1fr' }}
+        gap={{ base: '4', md: '8', lg: '12' }}
       >
         {posts.map((post) => (
           <GridItem key={post.slug}>
