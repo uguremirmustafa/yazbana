@@ -26,7 +26,7 @@ export default function HeroPost({ title, coverImage, date, excerpt, author, slu
         </GridItem>
         <GridItem>
           <Box my="4">
-            <Avatar name={author.name} picture={author.image} />
+            <Avatar name={author.name} picture={author.image} slug={author.slug} />
           </Box>
           <Text className="text-lg leading-relaxed mb-4" fontSize="lg" mb="4">
             {excerpt}

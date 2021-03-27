@@ -17,7 +17,7 @@ export default function PostHeader({ title, coverImage, date, author }) {
         justify={{ base: 'right', md: 'space-between' }}
         flexDirection={{ base: 'column', md: 'row' }}
       >
-        <Avatar name={author.name} picture={author.image} />
+        <Avatar name={author.name} picture={author.image} slug={author.slug} />
         <Box my="2">
           <Date dateString={date} />
         </Box>

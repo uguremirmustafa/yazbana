@@ -6,14 +6,15 @@ import { postQuery, postSlugsQuery } from '../../lib/queries';
 import { urlForImage, usePreviewSubscription } from '../../lib/sanity';
 import { sanityClient, getClient, overlayDrafts } from '../../lib/sanity.server';
 import PostTitle from '@components/PostTitle';
-import { Box, Divider } from '@chakra-ui/layout';
+import { Box, Divider, Heading } from '@chakra-ui/layout';
 import PostHeader from '@components/PostHeader';
 import PostBody from '@components/PostBody';
 import MoreStories from '@components/MoreStories';
+import Comments from '@components/Comments';
 
 export default function Post({ data = {}, preview }) {
   const router = useRouter();
-  console.log(data);
+  // console.log(data);
   const slug = data?.post?.slug;
   const {
     data: { post, morePosts },
@@ -52,7 +53,11 @@ export default function Post({ data = {}, preview }) {
             author={post.author}
           />
           <PostBody content={post.body} />
+          <Comments postId={post._id} />
           <Divider my="8" />
+          <Heading mb="8" fontSize={{ base: '2xl', lg: '3xl' }}>
+            Seveceğinizi düşündük
+          </Heading>
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Box>
       )}

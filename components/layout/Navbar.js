@@ -1,22 +1,33 @@
 import NextLink from 'next/link';
 import React from 'react';
 import { ActiveLink } from './ActiveLink';
-import { Box, Flex, Link, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { Box, Flex, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
 import useCategories from '@utils/useCategories';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 function Navbar() {
   const { data: categories, isLoading } = useCategories();
 
+  const dropdownCategories = categories?.filter((i) => i.isOnNavbar && i.isOnDropdown);
+  const navbarCategories = categories?.filter((i) => i.isOnNavbar && !i.isOnDropdown);
+
+  const navbarLinks = navbarCategories?.map((i) => (
+    <NextLink href={`/kategoriler/${i.slug}`} key={i.slug}>
+      <Box ml="3" cursor="pointer">
+        {i.title}
+      </Box>
+    </NextLink>
+  ));
+
   const normalRoutes = [
     // { route: '/', label: 'Home' },
-    { route: '/blog', label: 'Blog' },
+    { slug: '/blog', title: 'Blog' },
   ];
 
   const normalLinks = normalRoutes.map((i) => (
-    <ActiveLink href={i.route} key={i.route}>
+    <ActiveLink href={i.slug} key={i.slug}>
       <Box ml="3" cursor="pointer">
-        {i.label}
+        {i.title}
       </Box>
     </ActiveLink>
   ));
@@ -27,13 +38,13 @@ function Navbar() {
         {isLoading ? 'Yükleniyor' : 'Kategoriler'}
       </MenuButton>
       <MenuList>
-        {categories?.map((cat) => (
+        {dropdownCategories?.map((cat) => (
           <MenuItem key={cat.slug} fontWeight="bold">
-            <ActiveLink href={`/kategoriler/${cat.slug}`}>
+            <NextLink href={`/kategoriler/${cat.slug}`}>
               <Box ml="3" cursor="pointer">
                 {cat.title}
               </Box>
-            </ActiveLink>
+            </NextLink>
           </MenuItem>
         ))}
       </MenuList>
@@ -52,11 +63,12 @@ function Navbar() {
     >
       <Flex w="100%" maxW="6xl" mx="auto" justify="space-between" align="center" px="4">
         <Box>
-          <NextLink href="/">Blogme</NextLink>
+          <NextLink href="/">Yazbana</NextLink>
         </Box>
 
         <Flex>
           {normalLinks}
+          {navbarLinks}
           {categoriesDropdown}
         </Flex>
       </Flex>

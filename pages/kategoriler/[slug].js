@@ -28,9 +28,9 @@ export default function Post({ data = {}, preview }) {
     enabled: preview && slug,
   });
 
-  //   if (!router.isFallback && !slug) {
-  //     return <ErrorPage statusCode={404} />;
-  //   }
+  if (!router.isFallback && !slug) {
+    return <ErrorPage statusCode={404} />;
+  }
   console.log(category);
   const heroPost = category?.posts[0];
   const moreStories = category?.posts.slice(1);
@@ -38,7 +38,7 @@ export default function Post({ data = {}, preview }) {
   return (
     <Layout preview={preview}>
       {router.isFallback ? (
-        <PostTitle>Loading...</PostTitle>
+        <CategoryTitle>Loading...</CategoryTitle>
       ) : (
         <Box as="section">
           <Head>
@@ -76,7 +76,6 @@ export async function getStaticProps({ params, preview = false }) {
   const category = await getClient(preview).fetch(categoryWithPostsQuery, {
     slug: params.slug,
   });
-
   return {
     props: {
       preview,
@@ -88,10 +87,9 @@ export async function getStaticProps({ params, preview = false }) {
 }
 
 export async function getStaticPaths() {
-  const data = await sanityClient.fetch(categoriesSlugsQuery);
-  console.log(data);
+  const paths = await sanityClient.fetch(categoriesSlugsQuery);
   return {
-    paths: data.map((slug) => ({ params: slug })),
+    paths: paths.map((slug) => ({ params: { slug } })),
     fallback: true,
   };
 }

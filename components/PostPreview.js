@@ -23,7 +23,7 @@ export default function PostPreview({ title, coverImage, date, excerpt, author, 
       <Text my="4" noOfLines={[1, 2, 3]} as="summary">
         {excerpt}
       </Text>
-      <Avatar name={author.name} picture={author.image} />
+      <Avatar name={author.name} picture={author.image} slug={author.slug} />
     </Box>
   );
 }
