@@ -1,9 +1,4 @@
 export default {
-  fonts: {
-    body: '"Montserrat",sans',
-    heading: '"Montserrat",sans',
-    mono: "'My Monospaced Font', monospace",
-  },
   components: {
     Heading: {
       // 1. We can update the base styles

@@ -5,13 +5,15 @@ import React from 'react';
 import { authorsIndexQuery } from '@lib/queries';
 import { getClient, overlayDrafts } from '@lib/sanity.server';
 import AuthorCard from '@components/AuthorCard';
+import CategoryTitle from '@components/CategoryTitle';
 
 export default function index({ allAuthors, preview }) {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{process.env.SITE_NAME}</title>
+        <title>Yazarlar | Yazbana</title>
       </Head>
+      <CategoryTitle>Yazarlar</CategoryTitle>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr 1fr' }} gap={8} minH="80vh" mb="8">
         {allAuthors.map((i) => (
           <GridItem>

@@ -24,7 +24,6 @@ export default function Post({ data = {}, preview }) {
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log(category);
   const heroPost = category?.posts[0];
   const moreStories = category?.posts.slice(1);
 
@@ -35,12 +34,10 @@ export default function Post({ data = {}, preview }) {
       ) : (
         <Box as="section">
           <Head>
-            <title>
-              {category.title} | {process.env.SITE_NAME}
-            </title>
+            <title>{category.title} | Yazbana</title>
           </Head>
           <Box mb="8">
-            <CategoryTitle>{category.title}</CategoryTitle>
+            <CategoryTitle>{category?.title}</CategoryTitle>
           </Box>
 
           {heroPost && (
