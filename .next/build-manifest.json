@@ -24,11 +24,6 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/yazarlar": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/yazarlar.js"
-    ],
     "/yazarlar/[slug]": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",

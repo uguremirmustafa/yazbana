@@ -26,8 +26,7 @@ export default function Post({ data = {}, preview }) {
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log(author);
-  const { email, twitter, instagram, posts, bio, name, image } = author;
+
   return (
     <Layout preview={preview}>
       {router.isFallback ? (
@@ -36,7 +35,7 @@ export default function Post({ data = {}, preview }) {
         author && (
           <Box as="section">
             <Head>
-              <title>{name} | Yazsana</title>
+              <title>{author?.name} | Yazsana</title>
             </Head>
             <Grid templateColumns={{ base: '1fr', md: '2fr 3fr' }} minH="80vh" gap={8}>
               <GridItem display="flex" alignItems="center" flexDirection="column">
@@ -50,11 +49,15 @@ export default function Post({ data = {}, preview }) {
                   Yazar Hakkında
                 </Heading>
                 <Box mt="4">
-                  <Avatar name={name} picture={image} size={500} col={true} />
+                  <Avatar name={author?.name} picture={author?.image} size={500} col={true} />
                 </Box>
-                <AuthorSocial twitter={twitter} instagram={instagram} email={email} />
+                <AuthorSocial
+                  twitter={author?.twitter}
+                  instagram={author?.instagram}
+                  email={author?.email}
+                />
                 <Box p="4">
-                  <BlockContent blocks={bio} />
+                  <BlockContent blocks={author?.bio} />
                 </Box>
               </GridItem>
               <GridItem px="4">
@@ -67,8 +70,8 @@ export default function Post({ data = {}, preview }) {
                   Yazarın Son Yazıları
                 </Heading>
                 <Box my="4">
-                  {posts?.length > 0 &&
-                    posts.map((i) => (
+                  {author?.posts.length > 0 &&
+                    author?.posts.map((i) => (
                       <Box key={i._id} bg="gray.100" p="4" my="4" rounded="md" shadow="lg">
                         <PostPreview
                           title={i.title}

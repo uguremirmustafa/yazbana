@@ -13,7 +13,7 @@ export default function Index({ allPosts, preview }) {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{process.env.SITE_NAME}</title>
+        <title>Yazbana</title>
       </Head>
       {heroPost && (
         <HeroPost
