@@ -13,9 +13,9 @@ export default function SocialLink() {
       <HStack spacing={{ base: '4', lg: '6' }} justify="right" py={{ base: '4', md: '4' }}>
         <Link
           href="https://www.instagram.com/uguremirmustafa/"
-          _hover={{ background: 'primaryLight' }}
-          _active={{ background: 'primaryLight' }}
-          _focus={{ background: 'primaryLight' }}
+          _hover={{ background: primaryLight }}
+          _active={{ background: primaryLight }}
+          _focus={{ background: primaryLight }}
           p="2"
           borderRadius="2xl"
         >
@@ -23,9 +23,9 @@ export default function SocialLink() {
         </Link>
         <Link
           href="https://www.twitter.com/uguremirmustafa"
-          _hover={{ background: 'primaryLight' }}
-          _active={{ background: 'primaryLight' }}
-          _focus={{ background: 'primaryLight' }}
+          _hover={{ background: primaryLight }}
+          _active={{ background: primaryLight }}
+          _focus={{ background: primaryLight }}
           p="2"
           borderRadius="2xl"
         >
@@ -33,9 +33,9 @@ export default function SocialLink() {
         </Link>
         <Link
           href="https://github.com/uguremirmustafa/"
-          _hover={{ background: 'primaryLight' }}
-          _active={{ background: 'primaryLight' }}
-          _focus={{ background: 'primaryLight' }}
+          _hover={{ background: primaryLight }}
+          _active={{ background: primaryLight }}
+          _focus={{ background: primaryLight }}
           p="2"
           borderRadius="2xl"
         >

@@ -2,6 +2,7 @@ import NextLink from 'next/link';
 import Logo from '@components/Logo';
 import {
   Box,
+  Button,
   Flex,
   IconButton,
   Menu,
@@ -35,8 +36,8 @@ function Navbar({ categories, isLoading }) {
 
   const categoriesDropdown = (
     <Menu colorScheme="red">
-      <MenuButton as={Box} righticon={<ChevronDownIcon />} ml="3" cursor="pointer">
-        {isLoading ? 'Yükleniyor' : 'Kategoriler'}
+      <MenuButton ml="3" cursor="pointer" fontWeight="bold">
+        {isLoading ? 'Yükleniyor' : 'Kategoriler'} <ChevronDownIcon w={4} h={4} />
       </MenuButton>
       <MenuList>
         {dropdownCategories?.map((cat) => (

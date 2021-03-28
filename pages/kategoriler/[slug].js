@@ -51,6 +51,7 @@ export default function Post({ data = {}, preview }) {
               author={heroPost.author}
               slug={heroPost.slug}
               excerpt={heroPost.excerpt}
+              categories={heroPost.categories}
             />
           )}
           {moreStories.length > 0 && (

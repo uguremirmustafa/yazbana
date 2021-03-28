@@ -6,7 +6,7 @@ import theme from 'styles/theme';
 import { MainContextProvider } from '@context/Store';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
-initRouterListeners();
+// initRouterListeners();
 const customTheme = extendTheme(theme);
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient();

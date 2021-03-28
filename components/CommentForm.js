@@ -77,7 +77,7 @@ function CommentForm({ postId }) {
                           id="name"
                           placeholder="İsminiz"
                           border="2px"
-                          borderRadius="full"
+                          borderRadius="lg"
                           borderColor="gray.400"
                           color="gray.800"
                         />
@@ -96,7 +96,7 @@ function CommentForm({ postId }) {
                           id="email"
                           placeholder="E-posta adresiniz"
                           border="2px"
-                          borderRadius="full"
+                          borderRadius="lg"
                           borderColor="gray.400"
                           color="gray.800"
                         />
@@ -128,7 +128,7 @@ function CommentForm({ postId }) {
                   <Button
                     disabled={isSubmitting}
                     width="full"
-                    rounded="full"
+                    rounded="lg"
                     mt={4}
                     type="submit"
                     colorScheme="yellow"

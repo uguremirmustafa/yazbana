@@ -9,20 +9,25 @@ export default function Comments({ postId, comments }) {
       <Heading mb="4" fontSize="xl" borderBottom="1px solid lightgray" pb="1">
         Yorumlar
       </Heading>
+
       <Box my="4">
-        {comments.map((i) => (
-          <Box bg="yellow.100" rounded="sm" overflow="hidden" my="2" key={i._id}>
-            <Flex w="full" justify="space-between" bg="yellow.200" py="1" px="2">
-              <Text fontWeight="bold" fontSize="xs">
-                {i.name}
+        {comments.length > 0 ? (
+          comments.map((i) => (
+            <Box bg="yellow.100" rounded="sm" overflow="hidden" my="2" key={i._id}>
+              <Flex w="full" justify="space-between" bg="yellow.200" py="1" px="2">
+                <Text fontWeight="bold" fontSize="xs">
+                  {i.name}
+                </Text>
+                <Date dateString={i._createdAt} fontSize="xs" />
+              </Flex>
+              <Text mx="2" my="2" fontSize="sm">
+                {i.comment}
               </Text>
-              <Date dateString={i._createdAt} fontSize="xs" />
-            </Flex>
-            <Text mx="2" my="2" fontSize="sm">
-              {i.comment}
-            </Text>
-          </Box>
-        ))}
+            </Box>
+          ))
+        ) : (
+          <Text>Bu yazıya hiç yorum yapılmamış. İlk yorum yapan sen ol!</Text>
+        )}
       </Box>
       <Heading my="4" fontSize="xl" borderBottom="1px solid lightgray" pb="1">
         Yorum Yap

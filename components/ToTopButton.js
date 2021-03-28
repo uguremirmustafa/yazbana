@@ -28,16 +28,16 @@ function ToTopButton() {
           right="10"
           bottom="10"
           onClick={() => scroll.scrollToTop()}
-          colorScheme="teal"
           aria-label="scroll to top"
-          size="lg"
+          size="md"
           rounded="full"
-          icon={<ChevronUpIcon />}
+          icon={<ChevronUpIcon color="white" w={8} h={8} />}
           shadow="md"
           cursor="pointer"
           transition="ease-in-out"
-          _hover={{ shadow: 'lg' }}
+          _hover={{ shadow: 'lg', bgColor: 'gray.400' }}
           colorScheme="yellow"
+          zIndex="toast"
         />
       )}
     </>

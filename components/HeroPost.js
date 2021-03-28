@@ -2,16 +2,17 @@ import Avatar from '@components/Avatar';
 import Date from '@components/Date';
 import CoverImage from '@components/CoverImage';
 import Link from 'next/link';
-import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/layout';
+import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/layout';
+import CategoryBadge from './CategoryBadge';
 
-export default function HeroPost({ title, coverImage, date, excerpt, author, slug }) {
+export default function HeroPost({ title, coverImage, date, excerpt, author, slug, categories }) {
   return (
     <Box as="section" mb="8">
       <Box mb={{ base: '8', md: '12' }}>
         <CoverImage slug={slug} title={title} image={coverImage} />
       </Box>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={8}>
-        <GridItem borderRight="rgba(1,1,1,0.6) 1px solid" pr="6">
+        <GridItem borderRight={{ md: 'rgba(1,1,1,0.6) 1px solid' }} pr={{ md: '6' }}>
           <Heading
             mb="4"
             textTransform="capitalize"
@@ -22,7 +23,10 @@ export default function HeroPost({ title, coverImage, date, excerpt, author, slu
               <a className="hover:underline">{title}</a>
             </Link>
           </Heading>
-          <Date dateString={date} />
+          <Flex mb="4" align="center" justify="space-between">
+            <CategoryBadge categories={categories} />
+            <Date dateString={date} />
+          </Flex>
         </GridItem>
         <GridItem>
           <Box my="4">

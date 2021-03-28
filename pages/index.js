@@ -10,7 +10,6 @@ import { Heading } from '@chakra-ui/layout';
 export default function Index({ allPosts, preview }) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
-  console.log(heroPost);
   return (
     <Layout preview={preview}>
       <Head>
@@ -24,6 +23,7 @@ export default function Index({ allPosts, preview }) {
           author={heroPost.author}
           slug={heroPost.slug}
           excerpt={heroPost.excerpt}
+          categories={heroPost.categories}
         />
       )}
       <Seperator />

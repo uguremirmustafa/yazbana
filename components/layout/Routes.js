@@ -3,7 +3,7 @@ import { ActiveLink } from './ActiveLink';
 
 const normalRoutes = [
   // { route: '/', label: 'Home' },
-  { slug: '/blog', title: 'Blog' },
+  { slug: '/yazarlar', title: 'Yazarlar' },
 ];
 
 export const normalLinks = normalRoutes.map((i) => (

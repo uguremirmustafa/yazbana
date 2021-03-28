@@ -3,6 +3,7 @@ import PostPreview from '@components/PostPreview';
 
 export default function MoreStories({ posts, column }) {
   const triple = column === 3;
+
   return (
     <section>
       <Grid
@@ -18,6 +19,7 @@ export default function MoreStories({ posts, column }) {
               author={post.author}
               slug={post.slug}
               excerpt={post.excerpt}
+              categories={post.categories}
             />
           </GridItem>
         ))}
