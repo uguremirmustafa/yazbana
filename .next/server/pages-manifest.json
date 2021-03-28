@@ -3,8 +3,5 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/yazarlar": "pages/yazarlar.js",
-  "/kategoriler/[slug]": "pages/kategoriler/[slug].js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
-  "/yazarlar/[slug]": "pages/yazarlar/[slug].js",
-  "/posts/[slug]": "pages/posts/[slug].js"
+  "/yazarlar/[slug]": "pages/yazarlar/[slug].js"
 }

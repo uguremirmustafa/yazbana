@@ -15,11 +15,12 @@ export default function index({ allAuthors, preview }) {
       </Head>
       <CategoryTitle>Yazarlar</CategoryTitle>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr 1fr' }} gap={8} minH="80vh" mb="8">
-        {allAuthors.map((i) => (
-          <GridItem>
-            <AuthorCard author={i} key={i._id} />
-          </GridItem>
-        ))}
+        {allAuthors.length > 0 &&
+          allAuthors?.map((i) => (
+            <GridItem key={i._id}>
+              <AuthorCard author={i} />
+            </GridItem>
+          ))}
       </Grid>
     </Layout>
   );

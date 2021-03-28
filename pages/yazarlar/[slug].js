@@ -26,6 +26,7 @@ export default function Post({ data = {}, preview }) {
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />;
   }
+  console.log(author);
   const { email, twitter, instagram, posts, bio, name, image } = author;
   return (
     <Layout preview={preview}>
